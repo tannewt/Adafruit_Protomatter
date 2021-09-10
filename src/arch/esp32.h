@@ -189,8 +189,8 @@ IRAM_ATTR void _PM_timerStart(void *tptr, uint32_t period) {
 
 IRAM_ATTR uint32_t _PM_timerGetCount(void *tptr) {
   timer_index_t *timer = (timer_index_t *)tptr;
-  timer->hw->hw_timer[timer->idx].update.update = 1;
-  return timer->hw->hw_timer[timer->idx].cnt_low;
+  timer->hw->hw_timer[timer->idx].update.tx_update = 1;
+  return timer->hw->hw_timer[timer->idx].lo.tx_lo;
 }
 
 // Disable timer and return current count value.
